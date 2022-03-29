@@ -5,5 +5,5 @@ module.exports = defineConfig({
 })*/
 module.exports = {
   transpileDependencies: true,
-  publicPath: '/'
+  publicPath: '/visual-computing-workshop'
 }
