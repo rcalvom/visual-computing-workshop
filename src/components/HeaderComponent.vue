@@ -1,10 +1,11 @@
 <template>
   <b-navbar toggleable="lg" type="dark" variant="primary">
-    <b-navbar-brand to="/">Visual Computing</b-navbar-brand>
-    <b-navbar-toggle target="nav-collapse" />
-    <b-collapse id="nav-collapse" is-nav>
-      <b-navbar-nav />
-      <b-navbar-nav>
+    <b-container class="flex-nowrap">
+      <b-navbar-brand to="/">Visual Computing</b-navbar-brand>
+      <b-navbar-toggle target="nav-collapse"/>
+    </b-container>
+    <b-collapse id="nav-collapse" is-nav class="mx-auto">
+      <b-navbar-nav class="mx-auto">
         <b-nav-item to="/visual-illusions">Visual Illusions</b-nav-item>
       </b-navbar-nav>
       <b-navbar-nav class="mr-auto">
