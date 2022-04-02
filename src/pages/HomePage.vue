@@ -30,10 +30,7 @@
                     <b-card-title>
                         <b-avatar class="mr-3" size="lg"/>Ricardo Andrés Calvo Méndez
                     </b-card-title>
-                    <b-card-text>
-                        Some quick example text to build on the card title and make up the bulk of the card's content.
-                    </b-card-text>
-
+                    <b-card-text>Universidad Nacional de Colombia</b-card-text>
                     <b-button href="https://github.com/rcalvom" variant="primary"><b-icon-github class="mb-1 mr-2"/>Github Profile</b-button>
                     <b-button href="https://www.linkedin.com/in/ricardo-andres-calvo-mendez" variant="primary"><b-icon-linkedin class="mb-1 mr-2"/>Linkedin Profile</b-button>
                 </b-card>
@@ -47,9 +44,7 @@
                     <b-card-title>
                         <b-avatar class="mr-3" size="lg"/>Jorge Aurelio Morales Manrique
                     </b-card-title>
-                    <b-card-text>
-                    Some quick example text to build on the card title and make up the bulk of the card's content.
-                    </b-card-text>
+                    <b-card-text>Universidad Nacional de Colombia</b-card-text>
                     <b-button href="https://github.com/jomorales1" variant="primary"><b-icon-github class="mb-1 mr-2"/>Github Profile</b-button>
                     <b-button href="https://github.com/jomorales1" variant="primary"><b-icon-linkedin class="mb-1 mr-2"/>Linkedin Profile</b-button>
                 </b-card>
@@ -59,18 +54,18 @@
         <b-row class="mt-4">
             <h2>Frameworks and technologies</h2>
         </b-row>
-        <b-row class="pl-4 ml-4">
+        <b-row class="pl-4 ml-4 mt-4">
             <svg viewBox="0 0 128 128" width="40" height="40">
                 <path fill="#42b883" d="M78.8,10L64,35.4L49.2,10H0l64,110l64-110C128,10,78.8,10,78.8,10z"/>
                 <path fill="#35495e" d="M78.8,10L64,35.4L49.2,10H25.6L64,76l38.4-66H78.8z"/>
             </svg>
             <h4 class="ml-4">Vue.js</h4>
         </b-row>
-        <b-row class="pl-4 ml-4">
-            <p>Vue.js is used as the frontend framework for this website, Vue.js allow us to use a lot of usefull package from node.js</p>
-            <p>In this project we're using <strong>Bootstrap Vue</strong> as grpahical package</p> 
+        <b-row class="pl-4 ml-4 mt-4">
+            <p class="ml-4"><b-link href="https://vuejs.org/">Vue.js Framework</b-link> is used as the frontend framework for this website, Vue.js allow us to use a lot of usefull package from <b-link href="https://nodejs.org">node.js</b-link></p>
+            <p class="ml-4">In this project we're using <b-link href="https://bootstrap-vue.org/">Bootstrap Vue</b-link> as grpahical package</p> 
         </b-row>
-        <b-row class="pl-4 ml-4">
+        <b-row class="pl-4 ml-4 mt-4">
             <svg  width="60" height="40">
                 <defs>
                     <path id="p5js-logo-small_svg__a" d="M0 0h36v36H0z"/>
@@ -93,15 +88,15 @@
             </svg>
             <h4 class="ml-2">P5.js</h4>
         </b-row>
-        <b-row class="pl-4 ml-4">
-            <p>P5.js is used as as the drawing package that allow us to create sketches where we show different applications of visual computing</p>
+        <b-row class="pl-4 ml-4 mt-4">
+            <p class="ml-4"><b-link href="https://p5js.org/"> P5.js</b-link> is used as the drawing package that allow us to create sketches where we show different applications of visual computing</p>
         </b-row>
-        <b-row class="pl-4 ml-4">
+        <b-row class="pl-4 ml-4 mt-4">
             <b-icon-github scale="2" class="ml-4"/>
             <h4 class="ml-4">Github Pages</h4>
         </b-row>
-        <b-row class="pl-4 ml-4">
-            <p>For deployment of this website, we're using a Pipeline of GitHub pages to automatically perform a deploy on a push action on master branch</p>
+        <b-row class="pl-4 ml-4 mt-4">
+            <p class="ml-4">For deployment of this website, we're using a Pipeline of <b-link href="https://pages.github.com/"> GitHub pages</b-link> to automatically perform a deploy on a push action on master branch</p>
         </b-row>
     </b-container>
 </template>

@@ -1,5 +1,5 @@
 <template>
-  <b-navbar toggleable="md" type="dark" variant="primary">
+  <b-navbar toggleable="md" type="dark" variant="primary" sticky>
     <b-navbar-brand to="/">Visual Computing</b-navbar-brand>
     <b-navbar-toggle target="nav-collapse" />
     <b-collapse id="nav-collapse" is-nav class="float-left">
