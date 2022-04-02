@@ -1,6 +1,7 @@
 <template>
     <b-container class="mt-4">
         <h1>Scanimation</h1>
+        <SketchP5 :sketch="sketch"/>
         <h2>Introduction</h2>
         <h2>Literature Review</h2>
         <h2>Methods</h2>
@@ -49,6 +50,10 @@
 </template>
 
 <script>
+    import Scanimation from '../sketches/scanimation.p5.js';
+
+    import SketchP5 from '../components/SketchP5.vue';
+
     import CodeHighlight from "vue-code-highlight/src/CodeHighlight.vue";
     import "vue-code-highlight/themes/duotone-sea.css";
     import "vue-code-highlight/themes/prism-dark.css";
@@ -56,11 +61,12 @@
     export default {
         name: "VisualIllusion",
         components: {
+            SketchP5,
             CodeHighlight
         },
         data(){
             return {
-                code: ''
+                sketch: Scanimation
             }
         }
     };
