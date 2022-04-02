@@ -1,7 +1,7 @@
 $theme-colors: (
-        "primary": #1f2a42,
+        "primary": rgb(30, 30, 30),
         "secondary": #3f3f41
 );
 
-@import 'bootstrap/dist/css/bootstrap.css';
-@import 'bootstrap-vue/dist/bootstrap-vue.css';
+@import '~bootstrap/scss/bootstrap.scss';
+@import '~bootstrap-vue/src/index.scss';

@@ -1,0 +1,17 @@
+@font-face {
+    font-family: 'jost regular';
+    src: url(../fonts/Jost-Regular.ttf) format('truetype');
+}
+
+@font-face {
+    font-family: 'jost extrabold';
+    src: url(../fonts/Jost-ExtraBold.ttf) format('truetype');
+}
+
+body{
+    font-family: jost regular;
+}
+
+h1, h2, h3, h4, h5, h6{
+    font-family: 'jost extrabold';
+}

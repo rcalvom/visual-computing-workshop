@@ -1,5 +1,5 @@
 <template>
-    <b-container>
+    <b-container class="mt-4">
         <h1>Scanimation</h1>
         <h2>Introduction</h2>
         <h2>Literature Review</h2>
