@@ -20,12 +20,12 @@
   display: block;
   margin: 0 auto;
   padding: 0;
-  width: 720px;
-  height: 500px;
-  border-radius: 10px;
+  width: 960px;
+  height: 580px;
+  /*border-radius: 10px;*/
   overflow: hidden;
-  border-width: 1px;
-  border-style: solid;
+  /*border-width: 1px;
+  border-style: solid;*/
   border-color: var(--light);
 }
 </style>
