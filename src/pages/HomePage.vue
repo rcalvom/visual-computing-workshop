@@ -9,13 +9,7 @@
             <h2>Introduction</h2>
         </b-row>
         <b-row>
-            <p>This website has a collection of animations...</p>
-        </b-row>
-        <b-row>
-            <h2>Objective</h2>
-        </b-row>
-        <b-row>
-            <p>This website has a collection of animations...</p>
+            <p>This web page contains a collection of animations developed in the "Visual Computing" course offered by the Department of Systems Engineering and Computing at the Faculty of Engineering of the National University of Colombia, Bogotá. The animations and illusions presented here apply the different theories and principles of computer graphics and how this has generated a great impact in recent years.</p>
         </b-row>
         <b-row>
             <h2>Authors</h2>
@@ -46,7 +40,7 @@
                     </b-card-title>
                     <b-card-text>Universidad Nacional de Colombia</b-card-text>
                     <b-button href="https://github.com/jomorales1" variant="primary"><b-icon-github class="mb-1 mr-2"/>Github Profile</b-button>
-                    <b-button href="https://github.com/jomorales1" variant="primary"><b-icon-linkedin class="mb-1 mr-2"/>Linkedin Profile</b-button>
+                    <b-button href="https://www.linkedin.com/in/jorge-aurelio-morales-manrique-3117471b5/" variant="primary"><b-icon-linkedin class="mb-1 mr-2"/>Linkedin Profile</b-button>
                 </b-card>
             </b-col>
 

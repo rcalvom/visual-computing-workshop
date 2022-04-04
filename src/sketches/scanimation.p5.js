@@ -9,6 +9,7 @@ const sketch = (p5) => {
     let button;
     let image;
     let frames = [];
+    let x = 0;
   
     p5.setup = () => {
         canvas = p5.createCanvas(960, 540);
@@ -25,7 +26,18 @@ const sketch = (p5) => {
     }
 
     p5.draw = () => {
-
+      p5.background(255);
+      p5.image(image, 0, 0);
+      let c = p5.color(100);
+      p5.fill(c);
+      for (let i = 800; i >= 0; i -= 12) {
+        p5.rect(i - x, 0, 9.3, 800);
+      }
+      if (x === 8) {
+        x = 0;
+      } else {
+        x += 0.2;
+      }
     }
 
     const handleFileLoad = (file) => {
