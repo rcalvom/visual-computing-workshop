@@ -53,10 +53,15 @@
                     </b-col>
                     <br>
                     <li>Ombro-Cinema</li>
-                    <li>Maurice Bonnet's reliephographie</li>
+                    <p>Ombro-Cinéma toys operated on rotating scrolls of paper with sequences of images printed as interlaced two-frame animations: thin regularly-spaced vertical stripes of one frame of the animation were alternated with stripes of the next frame, alternately hidden by regularly-spaced black vertical stripes on a transparent viewing pane. In some versions the stripes on the viewing pane were disguised as a picket fence. Ombro-Cinema toys had of a wooden or cardboard chassis with a rack and hand-crank for cycling the image scroll across the viewing pane. In some versions a wind-up clockwork mechanism transferred the scroll while operating a music box.</p>
+                    <b-img thumbnail src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/1921_ombro-cin%C3%A9ma.jpg/1280px-1921_ombro-cin%C3%A9ma.jpg" />
+                    <!-- <li>Maurice Bonnet's reliephographie</li> -->
                     <li>Autostereoscopic cinema</li>
+                    <p>Autostereoscopy is any method of displaying stereoscopic images (adding binocular perception of 3D depth) without the use of special headgear, glasses, something that affects vision, or anything for eyes on the part of the viewer. Because headgear is not required, it is also called "glasses-free 3D" or "glassesless 3D"</p>
                     <li>Kinegram</li>
+                    <p>Visual artist Gianni A. Sarcone has produced animations that he calls kinegrams since 1997. He describes his animations as "optic kinetic media" that "artfully combine the visual effects of moiré patterns with the zoetrope animation technique". Sarcone also created rotating animations that use a transparent disc with radial lines that has to be spun around its center to animate the picture.</p>
                     <li>Scanimation</li>
+                    <p>"Scanimation", incorporating sliding striped acetate sheets into book pages or folding cards to produce barrier-grid animations of six phases or more at each page, was produced by Rufus Butler Seder starting in 2007.</p>
                 </ul>
             </b-col>
         </b-row>
