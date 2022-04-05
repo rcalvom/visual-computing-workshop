@@ -1,5 +1,5 @@
 <template>
-    <b-container class="mt-4">
+    <b-container class="my-4">
         <b-row>
             <b-col>
                 <h1>Visual Computing</h1>
@@ -9,7 +9,7 @@
             <h2>Introduction</h2>
         </b-row>
         <b-row>
-            <p>This web page contains a collection of animations developed in the "Visual Computing" course offered by the Department of Systems Engineering and Computing at the Faculty of Engineering of the National University of Colombia, Bogotá. The animations and illusions presented here apply the different theories and principles of computer graphics and how this has generated a great impact in recent years.</p>
+            <p class="text-left">This web page contains a collection of animations developed in the "Visual Computing" course offered by the Department of Systems Engineering and Computing at the Faculty of Engineering of the National University of Colombia, Bogotá. The animations and illusions presented here apply the different theories and principles of computer graphics and how this has generated a great impact in recent years.</p>
         </b-row>
         <b-row>
             <h2>Authors</h2>
@@ -94,13 +94,3 @@
         </b-row>
     </b-container>
 </template>
-
-<script>
-export default {
-    data(){
-        return {
-            data: null
-        }
-    }
-}
-</script>
