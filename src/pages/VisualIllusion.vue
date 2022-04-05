@@ -114,8 +114,18 @@
                 </pre>
             </code-highlight>
         </div>
-        <h2>Discussion</h2>
-        <h2>Conclusion</h2>
+        <b-row>
+            <h2>Discussion</h2>
+        </b-row>
+        <b-row>
+            <p>To improve the current implementation of scanimation, we can use as input a video, We can take some frames of it to generate the scanimation picture. Also we can construct the overlay in vertical way, not only horizontal.</p>
+        </b-row>
+        <b-row>
+            <h2>Conclusion</h2>
+        </b-row>
+        <b-row>
+            <p>Scanimation is a good way to create simple animations using static images, the film industry had started using this principle of create the first movies, the praxinoscope has used blinking light to simulate the scanimation overlay and an a sequence of frames.</p>
+        </b-row>
     </b-container>
 </template>
 

@@ -21,11 +21,8 @@
   margin: 0 auto;
   padding: 0;
   width: 960px;
-  height: 580px;
-  /*border-radius: 10px;*/
+  height: 620px;
   overflow: hidden;
-  /*border-width: 1px;
-  border-style: solid;*/
   border-color: var(--light);
 }
 </style>
