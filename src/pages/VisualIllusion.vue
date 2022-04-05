@@ -27,10 +27,31 @@
                 <br/>
                 <ul>
                     <li>Motograph</li>
+                    <p>On march 14, 1896 W. Symons received a patent for a technique that was used in the oldest known publication that used the principle of generating motion in pictures by interpolating colors using a grid and the image. The pictures feature different hatching patterns, causing moiré type effects when the striped transparency is moved across it. It creates a vibrant type of motion illusion with revolving wheels, billowing smoke, ripples in water, etc.</p>
+                    <b-col>
+                        <b-img thumbnail src="http://tile.loc.gov/storage-services/service/pnp/ppmsca/05900/05954/05954v.jpg" class="mt-4"/>
+                    </b-col>
+                    <br>
                     <li>Auguste Berthier's autostereograms</li>
+                    <p>In May 1896 Auguste Berthier published an article describing his method of creating an autostereogram. Alternating strips from the left and right image of a traditional stereoscopic negative had to be recomposed as an interlaced image, preferably during the printing of the image on paper. A glass plate with opaque lines had to be fixed in front of the interlaced print with a few millimeters in between, so the lines on the screen formed a parallax barrier: from the right distance and angle each eye could only see the photographic strips shot from the corresponding angle.</p>
+                    <b-col>
+                        <b-img thumbnail src="https://jiupinjia.github.io/neuralmagiceye/rst.jpg" class="mt-4"/>
+                    </b-col>
+                    <br>
                     <li>Frederic Ives' parallax stereogram <span>&#38;</span> changeable picture</li>
+                    <p>On December 5, 1901 American inventor Frederic Eugene Ives presented his "parallax stereogram" at the Franklin Institute of the State of Pennsylvania. The "parallax stereogram" was a photo shot through two apertures behind the lens with a "transparent-line screen, consisting of opaque lines with clear spaces between them" in front of the sensitive plate, slightly separated from it. The line screen had 200 parallel lines per inch (79/cm) and was contact-printed from an original factory halftone screen. The technique received U.S. patent on April 14, 1903</p>
+                    <b-col>
+                        <b-img thumbnail src="https://www.researchgate.net/profile/Lois-Mignard-Debise/publication/324525451/figure/fig4/AS:615507233353733@1523759768125/Patent-sketch-for-the-parallax-stereogram-making-camera-from-Ives-1903.png" class="mt-4"/>
+                    </b-col>
+                    <br>
                     <li>Eugene Estanave's animated autostereograms</li>
+                    <p>French mathematician Eugène Estanave investigated the parallax stereogram and started working with the technique late in 1905. On January 24, 1906, Estanave filed for French patent for a stereophotography device and stereoscopy using line sheets. It included his "changing" pictures that applied the principle of Ives' "Changeable sign" to animated photography, for instance the portrait of a woman with eyes open or closed depending on the viewing angle.</p>
                     <li>Magic moving picture cards</li>
+                    <p>Magic moving pictures were composed of images containing black vertical and regularly interlaced stripes, alternating between two or three phases of a depicted motion or between distinctly different pictures. A little transparent sheet with regular vertical black stripes was glued beneath a window in a cardboard envelope holding the picture card. The card was pulled out and pushed back in to produce the illusion of change or motion.</p>
+                    <b-col>
+                        <b-img thumbnail src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Postcard-chicago-magic-moving-pictures-nice-19061.jpg/640px-Postcard-chicago-magic-moving-pictures-nice-19061.jpg" class="mt-4"/>
+                    </b-col>
+                    <br>
                     <li>Ombro-Cinema</li>
                     <li>Maurice Bonnet's reliephographie</li>
                     <li>Autostereoscopic cinema</li>
@@ -79,38 +100,87 @@
         <div>
             <code-highlight language="javascript">
                 <pre>
-                    // Global Variable Declarations
-                    let c = {
-                        "width": 400,
-                        "height": 400
-                    };
+                    /**
+                    * Application of Scanimation visual illusion using p5.js
+                    * @param {p5} p5 reference 
+                    */
 
-                    let cx = c.width / 2, cy = c.height / 2,
-                        img,
-                        spacing = 10,
-                        weight = 9,
-                        speed=0;
+                    const sketch = (p5) => {
+                        let canvas;
+                        let input;
+                        let button;
+                        let clear;
+                        let check;
+                        let image;
+                        let frames = [];
+                        let x = 0;
 
-                    function preload() {
-                    // img = loadImage('image.png');
-                    img = loadImage('image.png');
+                        p5.setup = () => {
+                            canvas = p5.createCanvas(960, 540);
+                            canvas.parent("vue-canvas");
+
+                            input = p5.createFileInput(handleFileLoad, true);
+                            input.parent("vue-canvas");
+
+                            button = p5.createButton('Generate');
+                            button.parent("vue-canvas");
+                            button.mousePressed(handleGenerateButtonClick);
+
+                            clear = p5.createButton('Clear');
+                            clear.parent("vue-canvas");
+                            clear.mousePressed(handleClearButtonClick);
+
+                            check = p5.createCheckbox('Overlay', false);
+                            check.parent("vue-canvas");
+                            check.changed(handleChangeCheckbox);
+
+                            p5.background("#1e1e1e");
+                        }
+
+                        p5.draw = () => {
+                            if(check.checked()){
+                                x = (x + 2) % (2 * frames.length);
+                                drawGeneratedImage();
+                                p5.fill(p5.color(0));
+                                for (let i = - 2 * frames.length; i &lt;= image.width; i += 2 * frames.length) {
+                                    p5.rect(i + x, 0, 2 * (frames.length - 1), image.height);
+                                }
+                            }
+                        }
+
+                        const handleFileLoad = (file) => {
+                            if (file.type === 'image') {
+                                frames.push(p5.loadImage(file.data));
+                            }
+                        }
+
+                        const handleGenerateButtonClick = () => {
+                            if(frames.length > 0){
+                                drawGeneratedImage();
+                            }
+                        }
+
+                        const handleClearButtonClick = () => {
+                            p5.background("#1e1e1e");
+                            frames = [];
+                        }
+
+                        const handleChangeCheckbox = () => {
+                            if(!check.checked()){
+                                drawGeneratedImage();  
+                            }
+                        }
+
+                        const drawGeneratedImage = () => {
+                            image = p5.createImage(960, 540);
+                            for (let i = 0; i &lt;= image.width; i += 2) {
+                                image.set(i, 0, frames[i / 2 % frames.length].get(i, 0, 2, image.height));
+                            }
+                            p5.image(image, 0, 0);
+                        }
                     }
 
-                    // Setting up the Canvas
-                    function setup() {
-                    let canvas = createCanvas(c.width, c.height);
-                    canvas.parent('sketch-holder');
-                    }
-
-                    // Where the Magic Happens (It draws)
-                    function draw() {
-                    background(0);
-                    image(img, cx-250, cy-160, 500, 320);
-                    stroke(0);
-                    strokeWeight(weight);
-                    speed+=.2;
-                    if (speed >= 10) speed=0;
-                    }
+                    export default sketch;
                 </pre>
             </code-highlight>
         </div>
@@ -136,7 +206,7 @@
 
     import CodeHighlight from "vue-code-highlight/src/CodeHighlight.vue";
     import "vue-code-highlight/themes/duotone-sea.css";
-    import "vue-code-highlight/themes/prism-dark.css";
+    import "vue-code-highlight/themes/window.css";
 
     export default {
         name: "VisualIllusion",
