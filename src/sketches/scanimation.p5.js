@@ -7,6 +7,7 @@ const sketch = (p5) => {
   let canvas;
   let input;
   let button;
+  let clear;
   let check;
   let image;
   let frames = [];
@@ -22,6 +23,10 @@ const sketch = (p5) => {
     button = p5.createButton('Generate');
     button.parent("vue-canvas");
     button.mousePressed(handleGenerateButtonClick);
+
+    clear = p5.createButton('Clear');
+    clear.parent("vue-canvas");
+    clear.mousePressed(handleClearButtonClick);
 
     check = p5.createCheckbox('Overlay', false);
     check.parent("vue-canvas");
@@ -48,7 +53,14 @@ const sketch = (p5) => {
   }
 
   const handleGenerateButtonClick = () => {
-    drawGeneratedImage();
+    if(frames.length > 0){
+      drawGeneratedImage();
+    }
+  }
+
+  const handleClearButtonClick = () => {
+    p5.background("#1e1e1e");
+    frames = [];
   }
 
   const handleChangeCheckbox = () => {
