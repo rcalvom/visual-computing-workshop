@@ -17,6 +17,17 @@ const routes = [
         path:'/visual-illusions',
         name:'Visual Illusions',
         component:() => import('@/pages/VisualIllusion.vue')
+    },
+    {
+        path:'/scene-trees',
+        name:'Scene Trees',
+        component:() => import('@/pages/SceneTrees.vue')
+    }
+    ,
+    {
+        path:'/rasterization',
+        name:'Rasterization',
+        component:() => import('@/pages/Rasterization.vue')
     }
 ]
 

@@ -5,6 +5,8 @@
     <b-collapse id="nav-collapse" is-nav class="float-left">
       <b-navbar-nav>
         <b-nav-item to="/visual-illusions">Visual Illusions</b-nav-item>
+        <b-nav-item to="/scene-trees">Scene Trees</b-nav-item>
+        <b-nav-item to="/rasterization">Rasterization</b-nav-item>
       </b-navbar-nav>
       <b-navbar-nav class="ml-auto">
         <b-nav-item v-b-tooltip.hover title="Github Repository" href="https://github.com/rcalvom/visual-computing-workshop"><b-icon-github/></b-nav-item>
