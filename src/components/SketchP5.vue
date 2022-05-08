@@ -3,14 +3,17 @@
 </template>
 
 <script>
-    import P5 from 'p5';
+    import p5 from 'p5';
+    import treegl from '../../libs/p5.treegl';
+    import easycam from '../../libs/p5.easycam';
 
     export default {
         props: {
             sketch: Function
         },
         mounted(){
-            new P5(this.sketch);
+            const p = easycam(treegl(p5));
+            new p(this.sketch);
         }
     }
 </script>
