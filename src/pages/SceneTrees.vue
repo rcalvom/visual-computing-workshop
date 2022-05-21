@@ -11,6 +11,7 @@
         </b-row>
         <b-row>
             <h2>Methods</h2>
+            <vue-mathjax formula="$$\pi$$"></vue-mathjax>
         </b-row>
         <b-row>
             <h2>Code and Results</h2>
@@ -94,11 +95,13 @@
 
     import "vue-code-highlight/themes/duotone-sea.css";
     import "vue-code-highlight/themes/window.css";
+    import { VueMathjax } from 'vue-mathjax';
 
     export default {
         name: "VisualIllusion",
         components: {
-            SketchP5
+            SketchP5,
+            'vue-mathjax': VueMathjax
         },
         data(){
             return {
