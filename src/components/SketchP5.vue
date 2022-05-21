@@ -6,13 +6,14 @@
     import p5 from 'p5';
     import treegl from '../../libs/p5.treegl';
     import easycam from '../../libs/p5.easycam';
+    import quadrille from '../../libs/p5.quadrille';
 
     export default {
         props: {
             sketch: Function
         },
         mounted(){
-            const p = easycam(treegl(p5));
+            const p = quadrille(easycam(treegl(p5)));
             new p(this.sketch);
         }
     }

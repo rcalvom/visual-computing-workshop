@@ -1,6 +1,8 @@
 // Presure.js
 import Pressure from 'pressure';
 
+//import THREE from '../../libs/aframe-space-navigator-controls';
+
 /**
  * Application of Scene Tree using as input a Wacom stylus p5.js
  * @param {p5} p5 reference 
@@ -16,6 +18,23 @@ const sketch = (p5) => {
     let cameraListeners = false;
 
     let camera;
+
+    /*var options = {
+        rollEnabled: false,
+        movementEnabled: true,
+        lookEnabled: true,
+        invertPitch: false,
+        fovEnabled: false,
+        fovMin: 2,
+        fovMax: 115,
+        rotationSensitivity: 0.05,
+        movementEasing: 3,
+        movementAcceleration: 700,
+        fovSensitivity: 0.01,
+        fovEasing: 3,
+        fovAcceleration: 5,
+        invertScroll: false
+      }*/
 
     p5.setup = () => {
         // Canvas definition
@@ -66,13 +85,17 @@ const sketch = (p5) => {
 
 
     p5.update = () => {
+        //var controls = THREE(options);
+        //console.log(controls)
         if((p5.keyIsPressed && p5.keyCode === p5.CONTROL)){
+        //if((p5.mouseIsPressed && p5.mouseButton === p5.CENTER)){    
             if(!cameraListeners){
                 camera.attachMouseListeners();
                 cameraListeners = !cameraListeners;
             }
         }
         if(!(p5.keyIsPressed && p5.keyCode === p5.CONTROL)){
+        //if(!(p5.mouseIsPressed && p5.mouseButton === p5.CENTER)){
             if(cameraListeners){
                 camera.removeMouseListeners();
                 cameraListeners = !cameraListeners;

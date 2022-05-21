@@ -28,7 +28,8 @@
 </template>
 
 <script>
-    import SceneTrees from '../sketches/SceneTrees.p5';
+    //import SceneTrees from '../sketches/SceneTrees.p5';
+    import SceneTrees from '../sketches/AntiAliasing.p5';
     import SketchP5 from '../components/SketchP5.vue';
 
     import "vue-code-highlight/themes/duotone-sea.css";
