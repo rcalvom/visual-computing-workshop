@@ -100,7 +100,7 @@
             <h2>Code and Results</h2>
         </b-row>
         <b-row>
-            <SketchP5 :sketch="sketch" class="mt-4"/>
+            <SketchP5 :sketch="sketch" class="mt-4" :width="960" :heigth="620"/>
         </b-row>
         <div>
             <code-highlight language="javascript">

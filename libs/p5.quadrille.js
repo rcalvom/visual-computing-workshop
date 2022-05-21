@@ -555,7 +555,6 @@ class Quadrille {
       // Shader which colorizes the (row0, col0), (row1, col1), (row2, col2) triangle, according to the
       // pattern0.xyza, pattern1.xyza and pattern2.xyza interpolated color vertex patterns, respectively.
       ({ pattern: xyza }) => {
-        console.log(xyza);
         return p5.color(xyza), [p5.red(color0), p5.green(color0), p5.blue(color0), p5.alpha(color0)],
       [p5.red(color1), p5.green(color1), p5.blue(color1), p5.alpha(color1)],
       [p5.red(color2), p5.green(color2), p5.blue(color2), p5.alpha(color2)]});

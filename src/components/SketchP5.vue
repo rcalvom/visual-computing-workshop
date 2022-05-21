@@ -1,5 +1,5 @@
 <template>
-    <div id="vue-canvas"/>
+    <div id="vue-canvas" :style="`width=${width}px; height=${height}px`"/>
 </template>
 
 <script>
@@ -10,7 +10,9 @@
 
     export default {
         props: {
-            sketch: Function
+            sketch: Function,
+            width: Number,
+            height: Number
         },
         mounted(){
             const p = quadrille(easycam(treegl(p5)));
@@ -19,14 +21,17 @@
     }
 </script>
 
-<style scoped>
+<style>
 #vue-canvas {
   display: block;
-  margin: 0 auto;
+  margin: auto;
   padding: 0;
-  width: 960px;
-  height: 620px;
   overflow: hidden;
   border-color: var(--light);
+}
+
+.p5Canvas {
+  margin: auto;
+  display: block;
 }
 </style>

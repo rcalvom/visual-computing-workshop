@@ -4,6 +4,9 @@
  */
 
 const sketch = (p5) => {
+  const WIDTH = 960;
+  const HEIGHT = 540;
+  
   let canvas;
   let input;
   let button;
@@ -14,7 +17,7 @@ const sketch = (p5) => {
   let x = 0;
 
   p5.setup = () => {
-    canvas = p5.createCanvas(960, 540);
+    canvas = p5.createCanvas(WIDTH, HEIGHT);
     canvas.parent("vue-canvas");
 
     input = p5.createFileInput(handleFileLoad, true);
