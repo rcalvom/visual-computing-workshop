@@ -21,7 +21,7 @@ const routes = [
     {
         path:'/scene-trees',
         name:'Scene Trees',
-        component:() => import('@/pages/SceneTrees.vue')
+        component:() => import('@/pages/SceneTreesCopy.vue')
     }
     ,
     {
