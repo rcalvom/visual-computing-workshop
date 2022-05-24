@@ -21,13 +21,12 @@ const routes = [
     {
         path:'/scene-trees',
         name:'Scene Trees',
-        component:() => import('@/pages/SceneTreesCopy.vue')
-    }
-    ,
+        component:() => import('@/pages/SceneTrees.vue')
+    },
     {
-        path:'/rasterization',
-        name:'Rasterization',
-        component:() => import('@/pages/Rasterization.vue')
+        path:'/antialiasing',
+        name:'Anti-aliasing',
+        component:() => import('@/pages/Antialiasing.vue')
     }
 ]
 
