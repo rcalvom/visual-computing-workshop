@@ -1,5 +1,5 @@
 <template>
-    <div id="vue-canvas" :style="`width=${width}px; height=${height}px`"/>
+    <div :id="`vue-canvas${index}`" :style="`width=${width}px; height=${height}px`"/>
 </template>
 
 <script>
@@ -12,7 +12,8 @@
         props: {
             sketch: Function,
             width: Number,
-            height: Number
+            height: Number,
+            index: {type: String, default: ""}
         },
         mounted(){
             const p = quadrille(easycam(treegl(p5)));

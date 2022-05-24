@@ -1,46 +1,38 @@
-// Presure.js
-import Pressure from 'pressure';
-
-//import THREE from '../../libs/aframe-space-navigator-controls';
-
 /**
  * Application of Scene Tree using as input a Wacom stylus p5.js
  * @param {p5} p5 reference 
  */
 
-const sketch = (p5) => {
+import ml5 from 'ml5';
+
+const sketch_camera = (p5) => {
     const width = 960;
     const height = 540;
 
     let color;
     let points = [];
-    let pressure = 0;
     let cameraListeners = false;
+    let handpose;
+    let video;
+    let predictions = [];
 
     let camera;
-
-    /*var options = {
-        rollEnabled: false,
-        movementEnabled: true,
-        lookEnabled: true,
-        invertPitch: false,
-        fovEnabled: false,
-        fovMin: 2,
-        fovMax: 115,
-        rotationSensitivity: 0.05,
-        movementEasing: 3,
-        movementAcceleration: 700,
-        fovSensitivity: 0.01,
-        fovEasing: 3,
-        fovAcceleration: 5,
-        invertScroll: false
-      }*/
 
     p5.setup = () => {
         // Canvas definition
         let canvas = p5.createCanvas(width, height, p5.WEBGL);
-        canvas.parent("vue-canvas-1");
+        canvas.parent("vue-canvas-2");
         p5.background("#1e1e1e");
+        video = p5.createCapture(p5.VIDEO);
+        video.size(width, height);
+
+        // ml5 model
+        handpose = ml5.handpose(video, () => {console.log("Model ready!");});
+        handpose.on("predict", results => {
+            predictions = results;
+            // console.log(predictions);
+        });
+        video.hide();
 
         // Camera definition
         let state = {
@@ -56,14 +48,7 @@ const sketch = (p5) => {
 
         // Color picker definition
         color = p5.createColorPicker('#FFFFFF');
-        color.parent("vue-canvas-1");
-
-        // Pressure event suscription
-        Pressure.set('#vue-canvas-1', {
-            change: function(force){
-                pressure = force;
-            }
-        });
+        color.parent("vue-canvas-2");
     }
 
     p5.draw = () => {
@@ -81,37 +66,36 @@ const sketch = (p5) => {
             sphereBrush(point);
             p5.pop();
         }
-      }
-
+    }
 
     p5.update = () => {
-        //var controls = THREE(options);
-        //console.log(controls)
         if((p5.keyIsPressed && p5.keyCode === p5.CONTROL)){
-        //if((p5.mouseIsPressed && p5.mouseButton === p5.CENTER)){    
             if(!cameraListeners){
                 camera.attachMouseListeners();
                 cameraListeners = !cameraListeners;
             }
         }
         if(!(p5.keyIsPressed && p5.keyCode === p5.CONTROL)){
-        //if(!(p5.mouseIsPressed && p5.mouseButton === p5.CENTER)){
             if(cameraListeners){
                 camera.removeMouseListeners();
                 cameraListeners = !cameraListeners;
             }
         }
-        if(p5.mouseIsPressed && p5.mouseButton === p5.LEFT){
-            if(!cameraListeners){
-                let dx = p5.abs(p5.mouseX - p5.pmouseX);
-                let dy = p5.abs(p5.mouseY - p5.pmouseY);
-                let speed = p5.constrain((dx + dy) / (2 * (width - height)), 0, 1);
-                points.push({
-                    worldPosition: p5.treeLocation([p5.mouseX, p5.mouseY, pressure], { from: 'SCREEN', to: 'WORLD' }),
-                    color: color.color(),
-                    speed: speed
-                }); 
-            } 
+        if (p5.keyIsPressed && p5.keyCode === p5.SHIFT) {
+            if (!cameraListeners) {
+                for (let i = 0; i < predictions.length; i += 1) {
+                    const keypoint = predictions[i].landmarks[8];
+                    let max_depth = 60;
+                    let min_depth = -10;
+                    let depth = keypoint[2];
+                    depth -= min_depth;
+                    depth /= max_depth - min_depth;
+                    points.push({
+                        worldPosition: p5.treeLocation([width - keypoint[0] - width / 4, keypoint[1], depth], { from: 'SCREEN', to: 'WORLD' }),
+                        color: color.color()
+                    });
+                }
+            }
         }
     }
 
@@ -125,11 +109,11 @@ const sketch = (p5) => {
         p5.push();
         p5.noStroke();
         p5.fill(point.color);
-        p5.sphere(point.speed * 20 > 20 ? 20 : point.speed * 20);
+        p5.sphere(1);
         p5.pop();
     }
 
 }
 
-export default sketch;
+export default sketch_camera;
 
