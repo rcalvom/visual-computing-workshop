@@ -27,6 +27,11 @@ const routes = [
         path:'/antialiasing',
         name:'Anti-aliasing',
         component:() => import('@/pages/Antialiasing.vue')
+    },
+    {
+        path:'/shaders',
+        name:'Shaders',
+        component:() => import('@/pages/Shaders.vue')
     }
 ]
 
