@@ -10,9 +10,9 @@ const sketch = (p5) => {
     let uvShader;
 
     p5.preload = () => {
-        console.log(p5.readShader);
-        uvShader = p5.readShader('shaders/uv.frag', { matrices: p5.NONE, varyings: p5.texcoords2 });
-        console.log(uvShader);
+        //console.log(p5.texcoords2);
+        uvShader = p5.readShader('shaders/uv.frag', { matrices: p5.Tree.NONE, varyings: p5.Tree.texcoords2 });
+        
     }
 
     p5.setup = () => {
