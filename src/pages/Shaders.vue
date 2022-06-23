@@ -182,10 +182,14 @@
             <h3>Coloring</h3>
             <SketchP5 :sketch="first_sketch" class="mt-4" :width="960" :heigth="640" :index="'-1'"/>
         </b-col>
-        <!-- <b-col>
+        <b-col>
             <h3>Texturing</h3>
             <SketchP5 :sketch="second_sketch" class="mt-4" :width="960" :heigth="640" :index="'-2'"/>
-        </b-col> -->
+        </b-col>
+        <b-col>
+            <h3>Image processing</h3>
+            <SketchP5 :sketch="third_sketch" class="mt-4" :width="960" :heigth="640" :index="'-3'"/>
+        </b-col>
         <b-row>
             <h2>Discussion</h2>
             <p class="text-justify">
@@ -205,6 +209,8 @@
 
 <script>
     import coloring from '../sketches/coloring.p5';
+    import texturing from '../sketches/texturing.p5'
+    import image_processing from '../sketches/image_processing.p5'
     import SketchP5 from '../components/SketchP5.vue';
 
     // import CodeHighlight from "vue-code-highlight/src/CodeHighlight.vue";
@@ -222,8 +228,9 @@
                 stroke: true,
                 grid: true,
                 antialiasing: true,
-                first_sketch: coloring
-                // second_sketch: scene_trees_camera
+                first_sketch: coloring,
+                second_sketch: texturing,
+                third_sketch: image_processing
             }
         },
         created(){  
