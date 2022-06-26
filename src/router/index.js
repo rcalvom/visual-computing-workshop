@@ -29,9 +29,39 @@ const routes = [
         component:() => import('@/pages/Antialiasing.vue')
     },
     {
-        path:'/shaders',
-        name:'Shaders',
-        component:() => import('@/pages/Shaders.vue')
+        path:'/coloring',
+        name:'Coloring',
+        component:() => import('@/pages/Coloring.vue')
+    },
+    {
+        path:'/texturing',
+        name:'Texturing',
+        component:() => import('@/pages/Texturing.vue')
+    },
+    {
+        path:'/image-processing',
+        name:'Image processing',
+        component:() => import('@/pages/ImageProcessing.vue')
+    },
+    {
+        path:'/procedural-texturing',
+        name:'Procedural texturing',
+        component:() => import('@/pages/ProceduralTexturing.vue')
+    },
+    {
+        path:'/unity-webgl',
+        name:'Unity WEBGL',
+        component:() => import('@/pages/UnityWebGL.vue')
+    },
+    {
+        path:'/unity-shaders',
+        name:'Shaders in Unity',
+        component:() => import('@/pages/UnityShaders.vue')
+    },
+    {
+        path:'/unity-shader-graph',
+        name:'Shader Graph',
+        component:() => import('@/pages/UnityShaderGraph.vue')
     }
 ]
 

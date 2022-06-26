@@ -14,7 +14,7 @@
         <b-row>
             <h2 class="mt-4">Introduction</h2>
         </b-row>
-        <b-row align-h="left" align-v="left">
+        <b-row align-h="start" align-v="start">
             <p class="text-justify">Scanimation is a type of barrier-grid animation which is an effect created by moving a striped transparent overlay across an interlaced image.
             It is also known as kinegram which comes from "kine-" meaning "moving" and "-gram" meaning "drawing". This technique originated in the late 1890s, overlapping with the development of parallax stereography (Reliephographie) for 3D autostereograms. The technique has also been used for color-changing pictures, but to a much lesser extent.
             The objective of this workshop is to illustrate how to use this principle to generate apparently moving images from a set of frames selected by the user.</p>

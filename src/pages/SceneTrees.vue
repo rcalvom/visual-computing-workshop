@@ -6,10 +6,10 @@
         <b-row>
             <h2 class="mt-4">Introduction</h2>
         </b-row>
-        <b-row align-h="left" align-v="left">
+        <b-row align-h="start" align-v="start">
             <p class="text-justify">A scene tree is a general data structure commonly used by vector-based graphics editing applications and modern computer games, which arranges the logical and often spatial representation of a graphical scene. It is a collection of nodes in a graph or tree structure. A tree node may have many children but only a single parent, with the effect of a parent applied to all its child nodes; an operation performed on a group automatically propagates its effect to all of its members. In many programs, associating a geometrical transformation matrix (see also transformation and matrix) at each group level and concatenating such matrices together is an efficient and natural way to process such operations. A common feature, for instance, is the ability to group related shapes and objects into a compound object that can then be manipulated as easily as a single object.</p>
         </b-row>
-        <b-row align-h="left" align-v="left">
+        <b-row align-h="start" align-v="start">
             <h3>Structure of a Scene Tree</h3>
             <p class="text-justify">The structure and contents of a scene graph will obviously depend on the type of information it stores, or equivalently, the set of operations it is used for. Let us consider a simple tree structure that contains three types of nodes:</p>
             <ol>
@@ -22,19 +22,19 @@
         <b-row>
             <h2 class="mt-4">Literature review</h2>
         </b-row>
-        <b-row align-h="left" align-v="left">
+        <b-row align-h="start" align-v="start">
             <h3>Transformation Hierarchy</h3>
             <p class="text-justify">A transformation applied to one part of an object often cascades with the transformations applied to the adjacent interconnected parts. For example, a change in the orientation of Part-2 of the model in Fig. 3.2a also affects Part-3. Such dependencies can be easily converted into hierarchical representations that are suitable for scene graphs. We consider below three examples involving hierarchical transformations: (i) the model of a mechanical part shown in Fig. 3.2, (ii) an articulated character model, and (iii) a small planetary system.</p>
             <b-img thumbnail center src="http://what-when-how.com/wp-content/uploads/2012/07/tmpc2f9101_thumb_thumb.png"></b-img>
         </b-row>
-        <b-row align-h="left" align-v="left" class="mt-4">
+        <b-row align-h="start" align-v="start" class="mt-4">
             <h3>Scene trees in graphics editing tools</h3>
             <p class="text-justify">In vector-based graphics editing, each leaf node in a scene tree represents some atomic unit of the document, usually a shape such as an ellipse or Bezier path. Although shapes themselves (particularly paths) can be decomposed further into nodes such as spline nodes, it is practical to think of the scene graph as composed of shapes rather than going to a lower level of representation.
                 Another useful and user-driven node concept is the layer. A layer acts like a transparent sheet upon which any number of shapes and shape groups can be placed. The document then becomes a set of layers, any of which can be conveniently made invisible, dimmed, or locked (made read-only). Some applications place all layers in a linear list, while others support layers within layers to any desired depth. 
                 Internally, there may be no real structural difference between layers and groups at all, since they are both just nodes of a scene tree. If differences are needed, a common type declaration in C++ would be to make a generic node class, and then derive layers and groups as subclasses. A visibility member, for example, would be a feature of a layer, but not necessarily of a group.</p>
             <b-img thumbnail center src="https://paper.nweon.com/wp-content/uploads/2021/06/adb7ba255fbbfd80268c5b23d500f071.png"></b-img>
         </b-row>
-        <b-row align-h="left" align-v="left" class="mt-4">
+        <b-row align-h="start" align-v="start" class="mt-4">
             <h3>Scene trees in games and 3D applications</h3>
             <p class="text-justify">Scene trees are useful for modern games using 3D graphics and increasingly large worlds or levels. In such applications, nodes in a scene graph (generally) represent entities or objects in the scene.
                 For instance, a game might define a logical relationship between a knight and a horse so that the knight is considered an extension to the horse. The scene graph would have a 'horse' node with a 'knight' node attached to it.
