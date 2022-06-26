@@ -5,14 +5,16 @@
         </b-row>
         <b-row align-content="center" align-h="center" align-v="center">
             <SketchUnity 
-                dataPath="test/Build/Unity.data"
-                loaderPath="test/Build/Unity.loader.js"
-                frameworkPath="test/Build/Unity.framework.js"
-                codePath="test/Build/Unity.wasm"
-                streamingAssetsPath="test/StreamingAssets"
+                dataPath="scketch/test/Build/Unity.data"
+                loaderPath="scripts/Unity.loader.js"
+                frameworkPath="scripts/Unity.framework.js"
+                codePath="scketch/test/Build/Unity.wasm"
+                streamingAssetsPath="scketch/test/StreamingAssets"
                 companyName="Visual Computing"
                 productName="Test Unity"
                 productVersion="1.0"
+                width="960"
+                height="600"
                 />
         </b-row>   
     </b-container>

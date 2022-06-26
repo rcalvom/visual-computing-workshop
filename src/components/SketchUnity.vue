@@ -1,6 +1,6 @@
 <template>
     <div id="unity-container" class="unity-desktop">
-        <canvas id="unity-canvas" width=960 height=600></canvas>
+        <canvas id="unity-canvas" :width="twidth" :height="height"></canvas>
         <div id="unity-loading-bar">
             <div id="unity-logo"></div>
             <div id="unity-progress-bar-empty">
@@ -23,12 +23,9 @@
             streamingAssetsPath: String,
             companyName: String,
             productName: String,
-            productVersion: String
-        },
-        data(){
-            return{
-                
-            }
+            productVersion: String,
+            width: Number,
+            height: Number
         },
         mounted(){
             var config = {
@@ -41,9 +38,10 @@
                 productVersion: this.productVersion,
                 showBanner: this.unityShowBanner,
             };
+            
             var canvas = document.querySelector("#unity-canvas");
-            canvas.style.width = "960px";
-            canvas.style.height = "600px";
+            canvas.style.width = this.width + "px";
+            canvas.style.height = this.height + "px";
 
             var loadingBar = document.querySelector("#unity-loading-bar");
             loadingBar.style.display = "block";
@@ -118,20 +116,20 @@
 #unity-logo { 
     width: 154px; 
     height: 130px; 
-    background: url('@/unity/test/TemplateData/unity-logo-dark.png') no-repeat center;
+    background: url('@/assets/images/unity-logo-dark.png') no-repeat center;
 }
 #unity-progress-bar-empty { 
     width: 141px; 
     height: 18px; 
     margin-top: 10px; 
     margin-left: 6.5px; 
-    background: url('@/unity/test/TemplateData/progress-bar-empty-dark.png') no-repeat center;
+    background: url('@/assets/images/progress-bar-empty-dark.png') no-repeat center;
 }
 #unity-progress-bar-full { 
     width: 0%; 
     height: 18px; 
     margin-top: 10px; 
-    background: url('@/unity/test/TemplateData/progress-bar-full-dark.png') no-repeat center;
+    background: url('@/assets/images/progress-bar-full-dark.png') no-repeat center;
 }
 #unity-warning { 
     position: absolute; 
