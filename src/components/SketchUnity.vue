@@ -1,6 +1,6 @@
 <template>
     <div id="unity-container" class="unity-desktop">
-        <canvas id="unity-canvas" :width="twidth" :height="height"></canvas>
+        <canvas id="unity-canvas" :width="width" :height="height"></canvas>
         <div id="unity-loading-bar">
             <div id="unity-logo"></div>
             <div id="unity-progress-bar-empty">
@@ -24,8 +24,8 @@
             companyName: String,
             productName: String,
             productVersion: String,
-            width: Number,
-            height: Number
+            width: String,
+            height: String
         },
         mounted(){
             var config = {
@@ -88,13 +88,12 @@
 
 <style>
 #unity-container { 
-    position: absolute 
+    position: relative
 }
 #unity-container.unity-desktop { 
-    left: 50%; 
-    top: 50%; 
-    transform: translate(-50%, -50%);
+
 }
+
 #unity-container.unity-mobile { 
     width: 100%; 
     height: 100%; 
