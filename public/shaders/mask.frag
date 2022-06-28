@@ -4,9 +4,65 @@ uniform sampler2D texture;
 uniform vec2 texOffset;
 // holds the 3x3 kernel
 uniform float mask[9];
+uniform bool grey_scale;
+uniform bool region;
+uniform float radius;
+uniform float mouse_x;
+uniform float mouse_y;
+uniform int type;
 
 // we need our interpolated tex coord
 varying vec2 texcoords2;
+
+float luma(vec3 texel) {
+  return 0.299 * texel.r + 0.587 * texel.g + 0.114 * texel.b;
+}
+
+float Epsilon = 1e-10;
+ 
+vec3 RGBtoHCV(vec3 RGB) {
+  // Based on work by Sam Hocevar and Emil Persson
+  vec4 P = (RGB.g < RGB.b) ? vec4(RGB.bg, -1.0, 2.0/3.0) : vec4(RGB.gb, 0.0, -1.0/3.0);
+  vec4 Q = (RGB.r < P.x) ? vec4(P.xyw, RGB.r) : vec4(RGB.r, P.yzx);
+  float C = Q.x - min(Q.w, Q.y);
+  float H = abs((1.0 * (Q.w - Q.y)) / (6.0 * C + Epsilon) + 1.0 * Q.z);
+  return vec3(H, C, Q.x);
+}
+
+float hsv(vec3 texel) {
+  vec3 HCV = RGBtoHCV(texel.rgb);
+  float S = HCV.y / (HCV.z + Epsilon);
+  return HCV.x, S, HCV.z;
+}
+
+float hsl(vec3 texel) {
+  vec3 HCV = RGBtoHCV(texel.rgb);
+  float L = HCV.z - HCV.y * 0.5;
+  float S = HCV.y / (1.0 - 1.0 * abs(L * 2.0 - 1.0) + Epsilon);
+  return HCV.x, S, L;
+}
+
+float HUEtoRGB(float H) {
+  float R = abs(H * 6.0 - 3.0) - 1.0;
+  float G = 2.0 - abs(H * 6.0 - 2.0);
+  float B = 2.0 - abs(H * 6.0 - 4.0);
+  return R, G, B;
+}
+
+vec3 HCYwts = vec3(0.299, 0.587, 0.114);
+float hcy(vec3 texel) {
+  // Corrected by David Schaeffer
+  vec3 HCV = RGBtoHCV(texel.rgb);
+  float Y = texel.r * HCYwts.x + texel.g * HCYwts.y + texel.b * HCYwts.z;
+  float temp_x, temp_y, temp_z = HUEtoRGB(HCV.x);
+  float Z = temp_x * HCYwts.x + temp_y * HCYwts.y + temp_z * HCYwts.z;
+  if (Y < Z) {
+    HCV.y *= Z / (Epsilon + Y);
+  } else {
+    HCV.y *= (1.0 - Z) / (Epsilon + 1.0 - Y);
+  }
+  return HCV.x, HCV.y, Y;
+}
 
 void main() {
   // 1. Use offset to move along texture space.
@@ -41,5 +97,21 @@ void main() {
   }
 
   // 4. Set color from convolution
-  gl_FragColor = vec4(convolution.rgb, 1.0); 
+  vec4 texel = texture2D(texture, texcoords2);
+  float d = distance(gl_FragCoord.xy, vec2(mouse_x, mouse_y));
+  vec3 components = vec3(luma(convolution.rgb));
+  if (type == 2) {
+    components = vec3(hsv(convolution.rgb));
+  } else if (type == 3) {
+    components = vec3(hsl(convolution.rgb));
+  }
+  if (region) {
+    if (d < radius) {
+      gl_FragColor = grey_scale ? vec4(components, 1.0) : vec4(convolution.rgb, 1.0);
+    } else {
+      gl_FragColor = texel;
+    }
+  } else {
+    gl_FragColor = grey_scale ? vec4(components, 1.0) : vec4(convolution.rgb, 1.0);
+  }
 }

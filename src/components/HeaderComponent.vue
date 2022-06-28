@@ -9,10 +9,9 @@
         <b-nav-item to="/antialiasing">Anti-aliasing</b-nav-item>
         <b-nav-item-dropdown text="Shaders" right>
           <b-dropdown-header>Applications</b-dropdown-header>
-          <b-dropdown-item to="/coloring">Coloring</b-dropdown-item>
           <b-dropdown-item to="/texturing">Texturing</b-dropdown-item>
           <b-dropdown-item to="/image-processing">Image processing</b-dropdown-item>
-          <b-dropdown-item to="/procedural-texturing">Procedural texturing</b-dropdown-item>
+          <!-- <b-dropdown-item to="/procedural-texturing">Procedural texturing</b-dropdown-item> -->
           <b-dropdown-divider/>
           <b-dropdown-header>Unity</b-dropdown-header>
           <b-dropdown-item to="/unity-webgl">Unity WEBGL</b-dropdown-item>

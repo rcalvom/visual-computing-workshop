@@ -29,11 +29,6 @@ const routes = [
         component:() => import('@/pages/Antialiasing.vue')
     },
     {
-        path:'/coloring',
-        name:'Coloring',
-        component:() => import('@/pages/Coloring.vue')
-    },
-    {
         path:'/texturing',
         name:'Texturing',
         component:() => import('@/pages/Texturing.vue')
@@ -43,11 +38,11 @@ const routes = [
         name:'Image processing',
         component:() => import('@/pages/ImageProcessing.vue')
     },
-    {
-        path:'/procedural-texturing',
-        name:'Procedural texturing',
-        component:() => import('@/pages/ProceduralTexturing.vue')
-    },
+    // {
+    //     path:'/procedural-texturing',
+    //     name:'Procedural texturing',
+    //     component:() => import('@/pages/ProceduralTexturing.vue')
+    // },
     {
         path:'/unity-webgl',
         name:'Unity WEBGL',
