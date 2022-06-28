@@ -54,9 +54,9 @@ const routes = [
         component:() => import('@/pages/UnityWebGL.vue')
     },
     {
-        path:'/unity-shaders',
+        path:'/diffuse-reflection',
         name:'Shaders in Unity',
-        component:() => import('@/pages/UnityShaders.vue')
+        component:() => import('@/pages/DiffuseReflection.vue')
     },
     {
         path:'/unity-shader-graph',

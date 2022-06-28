@@ -16,7 +16,7 @@
           <b-dropdown-divider/>
           <b-dropdown-header>Unity</b-dropdown-header>
           <b-dropdown-item to="/unity-webgl">Unity WEBGL</b-dropdown-item>
-          <b-dropdown-item to="/unity-shaders">Shaders in unity</b-dropdown-item>
+          <b-dropdown-item to="/diffuse-reflection">Diffuse reflection</b-dropdown-item>
           <b-dropdown-item to="/unity-shader-graph">Shader graph</b-dropdown-item>
         </b-nav-item-dropdown>
       </b-navbar-nav>
